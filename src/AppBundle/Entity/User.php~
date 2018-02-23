@@ -38,7 +38,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
@@ -64,11 +64,11 @@ class User
     private $birthDate;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CategoryUser", inversedBy="user")
-     * @ORM\JoinColumn(nullable=false)
+     * @var boolean
+     *
+     * @ORM\Column(name="isAdmin", type="boolean")
      */
-    private $categoryUser;
-
+    private $isAdmin;
 
     /**
      * Get id
@@ -223,6 +223,4 @@ class User
     {
         return $this->birthDate;
     }
-
 }
-

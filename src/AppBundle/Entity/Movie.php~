@@ -129,5 +129,28 @@ class Movie
     {
         return $this->synopsis;
     }
-}
 
+    /**
+     * Set categoryMovie
+     *
+     * @param \AppBundle\Entity\CategoryMovie $categoryMovie
+     *
+     * @return Movie
+     */
+    public function setCategoryMovie(\AppBundle\Entity\CategoryMovie $categoryMovie)
+    {
+        $this->categoryMovie = $categoryMovie;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryMovie
+     *
+     * @return \AppBundle\Entity\CategoryMovie
+     */
+    public function getCategoryMovie()
+    {
+        return $this->categoryMovie;
+    }
+}

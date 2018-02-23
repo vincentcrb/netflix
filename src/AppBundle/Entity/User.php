@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -64,11 +65,11 @@ class User
     private $birthDate;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CategoryUser", inversedBy="user")
-     * @ORM\JoinColumn(nullable=false)
+     * @var boolean
+     *
+     * @ORM\Column(name="isAdmin", type="boolean")
      */
-    private $categoryUser;
-
+    private $isAdmin;
 
     /**
      * Get id
@@ -224,28 +225,50 @@ class User
         return $this->birthDate;
     }
 
-
     /**
-     * Set categoryUser
+     * Set isAdmin
      *
-     * @param \AppBundle\Entity\CategoryUser $categoryUser
+     * @param boolean $isAdmin
      *
      * @return User
      */
-    public function setCategoryUser(\AppBundle\Entity\CategoryUser $categoryUser)
+    public function setIsAdmin($isAdmin)
     {
-        $this->categoryUser = $categoryUser;
+        $this->isAdmin = $isAdmin;
 
         return $this;
     }
 
     /**
-     * Get categoryUser
+     * Get isAdmin
      *
-     * @return \AppBundle\Entity\CategoryUser
+     * @return boolean
      */
-    public function getCategoryUser()
+    public function getIsAdmin()
     {
-        return $this->categoryUser;
+        return $this->isAdmin;
+    }
+
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+        if($this->isAdmin === 1 ){
+            return ['ROLE_ADMIN'];
+        }
+        else{
+            return ['ROLE_USER'];
+        }
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+        return;
     }
 }

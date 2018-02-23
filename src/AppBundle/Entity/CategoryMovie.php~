@@ -66,5 +66,45 @@ class CategoryMovie
     {
         return $this->name;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->movie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add movie
+     *
+     * @param \AppBundle\Entity\Movie $movie
+     *
+     * @return CategoryMovie
+     */
+    public function addMovie(\AppBundle\Entity\Movie $movie)
+    {
+        $this->movie[] = $movie;
+
+        return $this;
+    }
+
+    /**
+     * Remove movie
+     *
+     * @param \AppBundle\Entity\Movie $movie
+     */
+    public function removeMovie(\AppBundle\Entity\Movie $movie)
+    {
+        $this->movie->removeElement($movie);
+    }
+
+    /**
+     * Get movie
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMovie()
+    {
+        return $this->movie;
+    }
+}
