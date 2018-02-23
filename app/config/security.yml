@@ -3,14 +3,26 @@ security:
         AppBundle\Entity\User: bcrypt
 
     providers:
-        in_memory:
-            memory: ~
+        user:
+            entity:
+                class: AppBundle\Entity\User
+                property: username
 
     firewalls:
-
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
         main:
+            provider: user
             anonymous: ~
+            form_login:
+                login_path: sign_in
+                check_path: sign_in
+                default_target_path: article_list
+            logout:
+                path: sign_out
+                target: sign_in
+
+    access_control:
+        - { path: ^/article, roles: "ROLE_USER" }
