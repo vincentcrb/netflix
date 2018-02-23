@@ -19,10 +19,11 @@ security:
             form_login:
                 login_path: sign_in
                 check_path: sign_in
-                default_target_path: article_list
+                default_target_path: profil
             logout:
                 path: sign_out
                 target: sign_in
 
     access_control:
-        - { path: ^/article, roles: "ROLE_USER" }
+        - { path: ^/home, roles: ["ROLE_USER", "ROLE_ADMIN"]}
+        - { path: ^/admin, roles: "ROLE_ADMIN" }

@@ -252,7 +252,7 @@ class User implements UserInterface
     public function getRoles()
     {
         // TODO: Implement getRoles() method.
-        if($this->isAdmin === 1 ){
+        if($this->isAdmin){
             return ['ROLE_ADMIN'];
         }
         else{

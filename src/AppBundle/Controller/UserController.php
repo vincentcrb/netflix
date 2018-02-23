@@ -38,7 +38,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/sign-in", name="sign_in")
+     * @Route("/", name="sign_in")
      */
     public function loginAction(AuthenticationUtils $authUtils)
     {
@@ -58,4 +58,5 @@ class UserController extends Controller
     {
 
     }
+
 }

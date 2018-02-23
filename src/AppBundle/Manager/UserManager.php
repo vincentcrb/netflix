@@ -36,4 +36,23 @@ class UserManager {
         $this->em->flush();
     }
 
+    public function deleteUser($id){
+        $user = $this->getUser($id);
+
+        $this->em->remove($user);
+        $this->em->flush();
+    }
+
+    public function getUsers()
+    {
+        return $this->em->getRepository(User:: class)
+            ->findAll();
+    }
+
+    public function getUser($id)
+    {
+        return $this->em->getRepository(User:: class)
+            ->find($id);
+    }
+
 }
