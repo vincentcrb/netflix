@@ -31,9 +31,9 @@ class MovieManager {
     }
 
     public function deleteMovie($id){
-        $user = $this->getMovie($id);
+        $movie = $this->getMovie($id);
 
-        $this->em->remove($user);
+        $this->em->remove($movie);
         $this->em->flush();
     }
 
