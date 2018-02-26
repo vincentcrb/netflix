@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Manager\MovieManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Manager\UserManager;
@@ -38,6 +39,37 @@ class AdminController extends Controller
     public function deleteUser(UserManager $usersManager, $id){
         $usersManager->deleteUser($id);
         return $this->redirectToRoute("list_users");
+    }
+
+    /**
+     * @Route("/admin/movies", name="list_movies")
+     */
+    public function listMovie(MovieManager $moviesManager)
+    {
+        $movies = $moviesManager->getMovies();
+        return $this->render('admin/list-movies.html.twig', ['movies' => $movies]);
+    }
+
+    /**
+     * @Route("/admin/movie/{id}", name="profil_movie")
+     */
+    public function profilMovie(MovieManager $moviesManager, $id)
+    {
+        $movie = $moviesManager->getMovie($id);
+
+        if($movie == null) {
+            throw new NotFoundHttpException('404, Film non trouvé');
+        }
+        return $this->render('admin/profil-movie.html.twig', [
+            'movie' => $movie
+        ]);
+    }
+    /**
+     * @Route("/admin/delete-movie/{id}", name="delete_movie")
+     */
+    public function deleteMovie(MovieManager $moviesManager, $id){
+        $moviesManager->deleteMovie($id);
+        return $this->redirectToRoute("list_movies");
     }
 
 }

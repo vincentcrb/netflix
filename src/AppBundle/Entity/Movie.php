@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Movie
@@ -47,6 +48,14 @@ class Movie
      * @ORM\JoinColumn(nullable=false)
      */
     private $categoryMovie;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
+     */
+    private $image;
 
     /**
      * Get id
@@ -152,5 +161,30 @@ class Movie
     public function getCategoryMovie()
     {
         return $this->categoryMovie;
+    }
+
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Movie
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

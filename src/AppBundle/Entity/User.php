@@ -130,11 +130,8 @@ class User implements UserInterface
     }
 
     /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return User
+     * @param $email
+     * @return $this
      */
     public function setEmail($email)
     {

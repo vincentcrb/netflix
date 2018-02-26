@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -129,11 +130,8 @@ class User
     }
 
     /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return User
+     * @param $email
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -222,5 +220,52 @@ class User
     public function getBirthDate()
     {
         return $this->birthDate;
+    }
+
+    /**
+     * Set isAdmin
+     *
+     * @param boolean $isAdmin
+     *
+     * @return User
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Get isAdmin
+     *
+     * @return boolean
+     */
+    public function getIsAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+        if($this->isAdmin){
+            return ['ROLE_ADMIN'];
+        }
+        else{
+            return ['ROLE_USER'];
+        }
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+        return;
     }
 }

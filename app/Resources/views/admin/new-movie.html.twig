@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Ajouter un film</h1>
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+    <div>
+        {{ form_label(form.synopsis) }}
+        {{ form_errors(form.synopsis) }}
+        {{ form_widget(form.synopsis) }}
+    </div>
+    <div>
+        {{ form_label(form.releaseDate) }}
+        {{ form_errors(form.releaseDate) }}
+        {{ form_widget(form.releaseDate) }}
+    </div>
+    <div>
+        {{ form_label(form.categoryMovie) }}
+        {{ form_errors(form.categoryMovie) }}
+        {{ form_widget(form.categoryMovie) }}
+    </div>
+    <div>
+        {{ form_row(form.image) }}
+    </div>
+{{ form_end(form) }}
+
+</body>
+</html>

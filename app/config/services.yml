@@ -1,8 +1,5 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
-parameters:
-    #parameter_name: value
-
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -33,3 +30,5 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+parameters:
+    images_directory: '%kernel.project_dir%/web/uploads/images'
