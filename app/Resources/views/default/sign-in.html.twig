@@ -1,26 +1,21 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Connexion</title>
-</head>
-<body>
+{% include "default/header.html.twig" %}
 
 {% if error %}
     <div>{{ error.messageKey }}</div>
 {% endif %}
+<div class="text-center">
+<form class="form-signin" action="{{ path('sign_in') }}" method="post">
 
-<form action="{{ path('sign_in') }}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+    <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
 
-    <label for="password">Mot de passe:</label>
-    <input type="password" id="password" name="_password" />
+    <label for="username" class="sr-only">Username:</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="Username"/>
 
-    <button type="submit">Connexion</button>
+    <label for="password" class="sr-only">Mot de passe:</label>
+    <input type="password" id="password" name="_password" class="form-control" placeholder="Password"/>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
 </form>
+</div>
 </body>
 </html>
