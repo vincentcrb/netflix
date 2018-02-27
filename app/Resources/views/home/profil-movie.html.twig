@@ -39,8 +39,8 @@
 </header>
 
 <body>
-<div class="img-full">
-<img id="confiance" src="{{ asset('uploads/images/' ~ movie.image) }}"/>
+<div class="img-full" style="background-image:url('{{ asset('uploads/images/' ~ movie.image) }}')"></div>
+
 <div class="container">
 <h1>Nom du film : {{ movie.name }}</h1>
 <p>Synopsis : {{ movie.synopsis }}</p>
