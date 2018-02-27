@@ -1,5 +1,21 @@
-header{
-    margin-bottom: 100px;
+.container{
+    margin-top: 100px;
+}
+p, a, h1{
+    color: #fff;
+}
+.nav-link{
+    color: #fff !important;
+}
+body{
+    background-color: #1a191f;
+    color: #fff;
+    height: 100%;
+}
+
+.navbar{
+
+    position: fixed;
 }
 
 .form-signin {
@@ -31,3 +47,35 @@ header{
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.nav-link, .nav-link:hover{
+    color: #111;
+}
+
+.nav-btn{
+    border: #fff solid 1px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.img-container{
+    padding: 0;
+}
+.img{
+    height: 160px;
+    background-size: cover;
+}
+.img-full{
+    height: 100%;
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+#confiance{
+    height: 100%;
+    width: 100%;
+    background-repeat:no-repeat;
+    position: absolute;
+    z-index: -999;
+}
+
+

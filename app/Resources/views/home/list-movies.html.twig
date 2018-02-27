@@ -6,8 +6,8 @@
 {% for movie in movies %}
     <div class="col-3 img-container">
     <a href="{{ path('profil_movie', {'id': movie.id}) }}">
-    <img class="col-12 img" src="{{ asset('uploads/images/' ~ movie.image) }}"/>
-    <p>{{ movie.name }}</p>
+    <div class="col-12 img" style="background-image:url('{{ asset('uploads/images/' ~ movie.image) }}')"></div>
+        <p>{{ movie.name }}</p>
     </a>
     </div>
 {% endfor %}

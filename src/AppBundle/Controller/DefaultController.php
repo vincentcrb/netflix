@@ -38,7 +38,7 @@ class DefaultController extends Controller
     public function listMovie(MovieManager $moviesManager)
     {
         $movies = $moviesManager->getMovies();
-        return $this->render('admin/list-movies.html.twig', ['movies' => $movies]);
+        return $this->render('home/list-movies.html.twig', ['movies' => $movies]);
     }
 
     /**
@@ -51,7 +51,7 @@ class DefaultController extends Controller
         if($movie == null) {
             throw new NotFoundHttpException('404, Film non trouvé');
         }
-        return $this->render('admin/profil-movie.html.twig', [
+        return $this->render('home/profil-movie.html.twig', [
             'movie' => $movie
         ]);
     }

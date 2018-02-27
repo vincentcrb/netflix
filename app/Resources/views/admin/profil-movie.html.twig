@@ -1,13 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Liste des movies</title>
-</head>
-<body>
+{% include "default/header.html.twig" %}
+
+<div class="container">
 <h1>Nom du film : {{ movie.name }}</h1>
 <p>Synopsis : {{ movie.synopsis }}</p>
 <p>Sortie : {{ movie.releaseDate|date('Y-m-d') }}</p>
@@ -15,7 +8,6 @@
 <img src="{{ asset('uploads/images/' ~ movie.image) }}"/>
 <br/>
 <a href="{{ path('delete_movie', {'id': movie.id}) }}">delete movie</a>
-<br/>
-<a href="{{ path('sign_out') }}">logout</a>
+</div>
 </body>
 </html>

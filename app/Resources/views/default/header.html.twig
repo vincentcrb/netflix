@@ -12,19 +12,25 @@
 
 <header>
 
-    <nav class="navbar navbar-light fixed-top">
+    <nav class="navbar fixed-top">
 
         <a class="navbar-brand" href={{ path('home') }} >
             Netflix
         </a>
 
         <ul class="nav justify-content-end">
+
             {% if app.user %}
             <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Movie</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ path('sign_out') }}">logout</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Profil</a></li>
+            {% if app.user.isadmin %}
+            <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Dashboard</a></li>
+            {% endif %}
+            <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_out') }}">logout</a></li>
             {% else %}
-            <li class="nav-item"><a class="nav-link" href="{{ path('sign_up') }}">Register</a></li>
+            <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_in') }}">Login</a></li>
+            <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_up') }}">Register</a></li>
             {% endif %}
         </ul>
 
