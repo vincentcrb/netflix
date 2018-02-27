@@ -13,6 +13,7 @@ use AppBundle\Entity\Movie;
 use AppBundle\Form\MovieType;
 use AppBundle\Manager\MovieManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,7 +34,11 @@ class MovieController extends Controller
             /** @var UploadedFile $file */
             $file = $movie->getImage();
 
+            /** @var UploadedFile $fileVideo */
+            $fileVideo = $movie->getVideo();
+
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+            $fileVideoName = $this->generateUniqueFileName().'.'.$fileVideo->guessExtension();
 
             // moves the file to the directory where brochures are stored
             $file->move(
@@ -41,7 +46,14 @@ class MovieController extends Controller
                 $fileName
             );
 
+            // moves the file to the directory where brochures are stored
+            $fileVideo->move(
+                $this->getParameter('videos_directory'),
+                $fileVideoName
+            );
+
             $movie->setImage($fileName);
+            $movie->setVideo($fileVideoName);
             $movieManager->createMovie($movie);
 
             // ... persist the $product variable or any other work
@@ -52,6 +64,27 @@ class MovieController extends Controller
         return $this->render('admin/new-movie.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    /**
+     * @Route("/admin/edit-movie/{id}", name="edit_movie")
+     */
+    public function editMovie(MovieManager $moviesManager, Request $request,$id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $movie = $em->getRepository(Movie:: class)
+            ->find($id);
+        $movie->setImage(new File($this->getParameter('images_directory').'/'.$movie->getImage()));
+        $form = $this->createForm(MovieType::class, $movie);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $newMovie = $form->getData();
+            $moviesManager->createMovie($newMovie);
+            return $this->redirectToRoute( 'edit_movie', ['id' => $newMovie->getId()]);
+        }
+        return $this->render('admin/new-movie.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**

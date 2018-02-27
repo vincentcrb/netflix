@@ -32,3 +32,4 @@ services:
     #         $someArgument: 'some_value'
 parameters:
     images_directory: '%kernel.project_dir%/web/uploads/images'
+    videos_directory: '%kernel.project_dir%/web/uploads/videos'

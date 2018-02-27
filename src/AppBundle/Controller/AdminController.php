@@ -42,7 +42,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/movies", name="list_movies")
+     * @Route("/admin/movies", name="admin_list_movies")
      */
     public function listMovie(MovieManager $moviesManager)
     {
@@ -51,7 +51,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/movie/{id}", name="profil_movie")
+     * @Route("/admin/movie/{id}", name="admin_profil_movie")
      */
     public function profilMovie(MovieManager $moviesManager, $id)
     {
@@ -69,7 +69,6 @@ class AdminController extends Controller
      */
     public function deleteMovie(MovieManager $moviesManager, $id){
         $moviesManager->deleteMovie($id);
-        return $this->redirectToRoute("list_movies");
+        return $this->redirectToRoute("admin_list_movies");
     }
-
 }

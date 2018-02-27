@@ -1,13 +1,17 @@
 {% include "default/header.html.twig" %}
 
+<div class="img-full" style="background-image:url('{{ asset('uploads/images/' ~ movie.image) }}')"></div>
+
 <div class="container">
-<h1>Nom du film : {{ movie.name }}</h1>
-<p>Synopsis : {{ movie.synopsis }}</p>
-<p>Sortie : {{ movie.releaseDate|date('Y-m-d') }}</p>
-<p>Catégorie : {{ movie.categoryMovie.name }}</p>
-<img src="{{ asset('uploads/images/' ~ movie.image) }}"/>
-<br/>
-<a href="{{ path('delete_movie', {'id': movie.id}) }}">delete movie</a>
+    <h1>Nom du film : {{ movie.name }}</h1>
+    <p>Synopsis : {{ movie.synopsis }}</p>
+    <p>Sortie : {{ movie.releaseDate|date('Y-m-d') }}</p>
+    <p>Catégorie : {{ movie.categoryMovie.name }}</p>
+    <a class="btn btn-primary" href="{{ path('delete_movie', {'id': movie.id}) }}">delete movie</a>
+</div>
+</div>
 </div>
 </body>
 </html>
+
+

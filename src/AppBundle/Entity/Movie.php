@@ -58,6 +58,14 @@ class Movie
     private $image;
 
     /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the correct video.")
+     * @Assert\File(mimeTypes={ "video/mp4" }, maxSize="500M")
+     */
+    private $video;
+
+    /**
      * Get id
      *
      * @return int
@@ -186,5 +194,29 @@ class Movie
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set video
+     *
+     * @param string $video
+     *
+     * @return Movie
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return string
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 }

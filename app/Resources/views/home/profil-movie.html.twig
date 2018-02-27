@@ -1,52 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="{{ asset('assets/css/main.css') }}" type="text/css" rel="stylesheet" />
-    <title>Connexion</title>
-</head>
+{% include "default/header.html.twig" %}
 
-<header>
-
-    <nav class="navbar fixed-top">
-
-        <a class="navbar-brand" href={{ path('home') }} >
-            Netflix
-        </a>
-
-        <ul class="nav justify-content-end">
-
-            {% if app.user %}
-                <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Movie</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Profil</a></li>
-                {% if app.user.isadmin %}
-                    <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Dashboard</a></li>
-                {% endif %}
-                <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_out') }}">logout</a></li>
-            {% else %}
-                <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_in') }}">Login</a></li>
-                <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_up') }}">Register</a></li>
-            {% endif %}
-        </ul>
-
-    </nav>
-
-</header>
-
-<body>
 <div class="img-full" style="background-image:url('{{ asset('uploads/images/' ~ movie.image) }}')"></div>
 
 <div class="container">
-<h1>Nom du film : {{ movie.name }}</h1>
+<h1>{{ movie.name }}</h1>
 <p>Synopsis : {{ movie.synopsis }}</p>
 <p>Sortie : {{ movie.releaseDate|date('Y-m-d') }}</p>
 <p>Catégorie : {{ movie.categoryMovie.name }}</p>
 
+    <video width="400" height="222" controls="controls">
+        <source src="{{ asset('uploads/videos/' ~ movie.video) }}" type="video/mp4" />
+    </video>
 </div>
 </div>
 </div>

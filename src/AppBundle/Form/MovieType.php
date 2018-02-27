@@ -26,6 +26,7 @@ class MovieType extends AbstractType
                 'choice_label' => 'name'
             ])
             ->add('image', FileType::class, array('label' => 'Image JPG, PNG'))
+            ->add('video', FileType::class, array('label' => 'Video MP4'))
 
             ->add('save', SubmitType::class);
 
