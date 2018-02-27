@@ -8,9 +8,11 @@
 <p>Sortie : {{ movie.releaseDate|date('Y-m-d') }}</p>
 <p>Catégorie : {{ movie.categoryMovie.name }}</p>
 
-    <video width="400" height="222" controls="controls">
+    {% if movie.video %}
+    <video controls="controls" class="col-12">
         <source src="{{ asset('uploads/videos/' ~ movie.video) }}" type="video/mp4" />
     </video>
+    {% endif %}
 </div>
 </div>
 </div>

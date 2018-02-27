@@ -25,7 +25,7 @@
             <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Movie</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Profil</a></li>
             {% if app.user.isadmin %}
-            <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('dashboard') }}">Dashboard</a></li>
             {% endif %}
             <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_out') }}">logout</a></li>
             {% else %}
