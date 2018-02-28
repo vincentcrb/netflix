@@ -7,6 +7,9 @@ p, a, h1{
 .nav-link{
     color: #fff !important;
 }
+.jumbotron h1{
+    color: #000;
+}
 body{
 
     background-color: rgba(26,25,31,1);

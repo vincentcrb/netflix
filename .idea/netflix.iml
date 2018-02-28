@@ -9,5 +9,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/doctrine/data-fixtures" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/doctrine/data-fixtures" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

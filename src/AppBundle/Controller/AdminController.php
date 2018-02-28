@@ -67,8 +67,10 @@ class AdminController extends Controller
     /**
      * @Route("/admin/delete-movie/{id}", name="delete_movie")
      */
-    public function deleteMovie(MovieManager $moviesManager, $id){
+    public function deleteMovie(MovieManager $moviesManager, $id)
+    {
+       
         $moviesManager->deleteMovie($id);
-        return $this->redirectToRoute("admin_list_movies");
+        return $this->redirectToRoute("dashboard");
     }
 }

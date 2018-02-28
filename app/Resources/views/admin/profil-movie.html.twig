@@ -1,7 +1,11 @@
-{% include "default/header.html.twig" %}
+{% extends "default/layout.html.twig" %}
+
+{% block content %}
 
 <div class="container">
-    <h1>Ajouter un film</h1>
+
+    <h1>Edit un film</h1>
+
     {{ form_start(form) }}
     {{ form_errors(form) }}
     <div>
@@ -31,6 +35,7 @@
         {{ form_row(form.video) }}
     </div>
     {{ form_end(form) }}
+
 </div>
-</body>
-</html>
+
+{% endblock %}

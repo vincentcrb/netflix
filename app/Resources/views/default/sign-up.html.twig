@@ -1,4 +1,6 @@
-{% include "default/header.html.twig" %}
+{% extends "default/layout.html.twig" %}
+
+{% block content %}
 
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
@@ -38,5 +40,5 @@
 </div>
 {{ form_end(form) }}
 </div>
-</body>
-</html>
+
+{% endblock %}
