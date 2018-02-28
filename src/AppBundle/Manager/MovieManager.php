@@ -20,7 +20,7 @@ class MovieManager {
     {
 
         $movie
-            ->setName($movie->getName())
+            ->setName(ucfirst(strtolower($movie->getName())))
             ->setReleaseDate($movie->getReleaseDate())
             ->setSynopsis($movie->getSynopsis())
             ->setCategoryMovie($movie->getCategoryMovie())

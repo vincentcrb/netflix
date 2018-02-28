@@ -69,7 +69,17 @@ class AdminController extends Controller
      */
     public function deleteMovie(MovieManager $moviesManager, $id)
     {
-       
+        $uploadPath = $this->get('kernel')->getRootDir().'/../web/uploads';
+        $movie = $moviesManager->getMovie($id);
+
+        if($movie->getImage()){
+            unlink($uploadPath.'/images/'.$movie->getImage());
+        }
+
+        if($movie->getVideo()) {
+            unlink($uploadPath . '/videos/' . $movie->getVideo());
+        }
+
         $moviesManager->deleteMovie($id);
         return $this->redirectToRoute("dashboard");
     }
