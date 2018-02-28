@@ -1,0 +1,12 @@
+    <div class="container">
+        <h1>Listes de categories</h1>
+        <div class="row">
+            {% for category in categoryMovies %}
+                <div class="col-3 img-container">
+                    <a href="{{ path('profil_category', {'id': category.id}) }}">
+                        <p>{{ category.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>

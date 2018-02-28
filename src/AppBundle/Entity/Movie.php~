@@ -53,9 +53,17 @@ class Movie
      * @ORM\Column(type="string")
      *
      * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
-     * @Assert\File(mimeTypes={ "application/pdf" })
+     * @Assert\File(mimeTypes={ "image/jpeg" })
      */
     private $image;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the correct video.")
+     * @Assert\File(mimeTypes={ "video/mp4" }, maxSize="500M")
+     */
+    private $video;
 
     /**
      * Get id
@@ -163,4 +171,52 @@ class Movie
         return $this->categoryMovie;
     }
 
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Movie
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set video
+     *
+     * @param string $video
+     *
+     * @return Movie
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return string
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
 }

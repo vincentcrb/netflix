@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Movie;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
+use AppBundle\Manager\MovieManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -59,4 +61,29 @@ class UserController extends Controller
 
     }
 
+    /**
+     * @Route("/toWatch/{idUser}/{idMovie}", name="toWatch")
+     */
+    public function toWatch(UserManager $userManager, $idUser, $idMovie)
+    {
+        /** @var User $user */
+        $user = $userManager->getUser($idUser);
+
+        $userManager->toWatch($user, $idMovie);
+
+        return $this->redirectToRoute('profil_movie',['id' => $idMovie]);
+    }
+
+    /**
+     * @Route("/toUnwatch/{idUser}/{idMovie}", name="toUnwatch")
+     */
+    public function toUnwatch(UserManager $userManager, $idUser, $idMovie)
+    {
+        /** @var User $user */
+        $user = $userManager->getUser($idUser);
+
+        $userManager->toUnwatch($user, $idMovie);
+
+        return $this->redirectToRoute('profil_movie',['id' => $idMovie]);
+    }
 }

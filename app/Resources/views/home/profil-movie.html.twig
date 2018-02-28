@@ -3,11 +3,26 @@
 {% set page_title = movie.name %}
 
 {% block content %}
-
+    {% set btnWatch = false %}
 <div class="img-full" style="background-image:url('{{ asset('uploads/images/' ~ movie.image) }}')"></div>
 
 <div class="container">
 <h1>{{ movie.name }}</h1>
+
+{% for movietowatch in app.user.towatch %}
+
+    {% if movie.name == movietowatch.name %}
+        {% set btnWatch = true %}
+    {% endif %}
+
+{% endfor %}
+
+{% if btnWatch == false %}
+    <a href="{{ path('toWatch', {'idUser': app.user.id, 'idMovie': movie.id}) }}" class="btn btn-primary">Watch later</a>
+{% else %}
+    <a href="{{ path('toUnwatch', {'idUser': app.user.id, 'idMovie': movie.id}) }}" class="btn btn-success">Saw</a>
+{% endif %}
+
 <p>Synopsis : {{ movie.synopsis }}</p>
 <p>Sortie : {{ movie.releaseDate|date('Y-m-d') }}</p>
 <p>Catégorie : {{ movie.categoryMovie.name }}</p>

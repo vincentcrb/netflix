@@ -57,13 +57,10 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/home/categories", name="list_categories")
-     */
     public function listCategoryMovie(CategoryMovieManager $categoryMovieManager)
     {
-        $movies = $categoryMovieManager->getCategoryMovies();
-        return $this->render('home/list-movies.html.twig', ['movies' => $movies]);
+        $categoryMovies = $categoryMovieManager->getCategoryMovies();
+        return $this->render('home/list-category.html.twig', ['categoryMovies' => $categoryMovies]);
     }
 
     /**
@@ -71,13 +68,13 @@ class DefaultController extends Controller
      */
     public function profilCategory(CategoryMovieManager $categoryMovieManager, $id)
     {
-        $movie = $categoryMovieManager->getCategoryMovie($id);
+        $categoryMovies = $categoryMovieManager->getCategoryMovie($id);
 
-        if($movie == null) {
+        if($categoryMovies == null) {
             throw new NotFoundHttpException('404, Categorie non trouvée');
         }
         return $this->render('home/profil-movie.html.twig', [
-            'movie' => $movie
+            'categoryMovies' => $categoryMovies
         ]);
     }
 }

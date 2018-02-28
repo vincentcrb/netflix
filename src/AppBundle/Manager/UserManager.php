@@ -2,6 +2,7 @@
 
 namespace AppBundle\Manager;
 
+use AppBundle\Entity\Movie;
 use AppBundle\Entity\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -53,6 +54,32 @@ class UserManager {
     {
         return $this->em->getRepository(User:: class)
             ->find($id);
+    }
+
+    public function toWatch(User $user, $idMovie)
+    {
+        /** @var Movie $movie */
+        $movie = $this->em->getRepository(Movie:: class)
+            ->find($idMovie);
+
+        $user
+            ->addToWatch($movie);
+
+        $this->em->persist($user);
+        $this->em->flush();
+    }
+
+    public function toUnwatch(User $user, $idMovie)
+    {
+        /** @var Movie $movie */
+        $movie = $this->em->getRepository(Movie:: class)
+            ->find($idMovie);
+
+        $user
+            ->removeToWatch($movie);
+
+        $this->em->persist($user);
+        $this->em->flush();
     }
 
 }

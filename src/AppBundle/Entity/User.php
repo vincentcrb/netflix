@@ -72,6 +72,11 @@ class User implements UserInterface
     private $isAdmin;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Movie")
+     */
+    private $toWatch;
+
+    /**
      * Get id
      *
      * @return int
@@ -267,5 +272,48 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
         return;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->toWatch = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add toWatch.
+     *
+     * @param \AppBundle\Entity\Movie $toWatch
+     *
+     * @return User
+     */
+    public function addToWatch(\AppBundle\Entity\Movie $toWatch)
+    {
+        $this->toWatch[] = $toWatch;
+
+        return $this;
+    }
+
+    /**
+     * Remove toWatch.
+     *
+     * @param \AppBundle\Entity\Movie $toWatch
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeToWatch(\AppBundle\Entity\Movie $toWatch)
+    {
+        return $this->toWatch->removeElement($toWatch);
+    }
+
+    /**
+     * Get toWatch.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getToWatch()
+    {
+        return $this->toWatch;
     }
 }

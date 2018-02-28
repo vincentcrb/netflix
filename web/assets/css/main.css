@@ -80,5 +80,25 @@ body{
     background-repeat:no-repeat;
 }
 
+.movie-name{
+    bottom: 0;
+    position: absolute;
+    font-size: 20px;
+    opacity: 0;
+}
 
+.img:hover .movie-name{
+    opacity: 1;
+    transition: all 0.2s ease-in;
+    color: #fff;
+}
+
+.img:hover{
+    opacity: 0.7;
+    transition: all 0.2s ease-in;
+}
+
+.img{
+
+}
 

@@ -1,0 +1,23 @@
+{% extends "default/layout.html.twig" %}
+
+{% set page_title = categoryMovies.name %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>{{ categoryMovies.name }}</h1>
+
+        <div class="row">
+            {% for movie in categoryMovies.movie %}
+                <div class="col-3 img-container">
+                    <a href="{{ path('profil_movie', {'id': movie.id}) }}">
+                        <div class="col-12 img" style="background-image:url('{{ asset('uploads/images/' ~ movie.image) }}')"></div>
+                        <p>{{ movie.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
