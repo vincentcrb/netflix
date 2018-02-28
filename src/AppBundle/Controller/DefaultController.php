@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Manager\CategoryMovieManager;
 use AppBundle\Manager\MovieManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -50,6 +51,30 @@ class DefaultController extends Controller
 
         if($movie == null) {
             throw new NotFoundHttpException('404, Film non trouvé');
+        }
+        return $this->render('home/profil-movie.html.twig', [
+            'movie' => $movie
+        ]);
+    }
+
+    /**
+     * @Route("/home/categories", name="list_categories")
+     */
+    public function listCategoryMovie(CategoryMovieManager $categoryMovieManager)
+    {
+        $movies = $categoryMovieManager->getCategoryMovies();
+        return $this->render('home/list-movies.html.twig', ['movies' => $movies]);
+    }
+
+    /**
+     * @Route("/home/category/{id}", name="profil_category")
+     */
+    public function profilCategory(CategoryMovieManager $categoryMovieManager, $id)
+    {
+        $movie = $categoryMovieManager->getCategoryMovie($id);
+
+        if($movie == null) {
+            throw new NotFoundHttpException('404, Categorie non trouvée');
         }
         return $this->render('home/profil-movie.html.twig', [
             'movie' => $movie
