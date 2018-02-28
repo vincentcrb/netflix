@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Movie;
+use AppBundle\Form\EditMovieType;
 use AppBundle\Form\MovieType;
 use AppBundle\Manager\MovieManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -74,7 +75,10 @@ class MovieController extends Controller
         $em = $this->getDoctrine()->getManager();
         $movie = $em->getRepository(Movie:: class)
             ->find($id);
-        $movie->setImage(new File($this->getParameter('images_directory').'/'.$movie->getImage()));
+
+        $movie->setImage(null);
+        $movie->setVideo(null);
+
         $form = $this->createForm(MovieType::class, $movie);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -82,7 +86,7 @@ class MovieController extends Controller
             $moviesManager->createMovie($newMovie);
             return $this->redirectToRoute( 'edit_movie', ['id' => $newMovie->getId()]);
         }
-        return $this->render('admin/new-movie.html.twig', [
+        return $this->render('admin/profil-movie.html.twig', [
             'form' => $form->createView()
         ]);
     }

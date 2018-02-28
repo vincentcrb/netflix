@@ -24,7 +24,8 @@ class MovieManager {
             ->setReleaseDate($movie->getReleaseDate())
             ->setSynopsis($movie->getSynopsis())
             ->setCategoryMovie($movie->getCategoryMovie())
-            ->setImage($movie->getImage());
+            ->setImage($movie->getImage())
+            ->setVideo($movie->getVideo());
 
         $this->em->persist($movie);
         $this->em->flush();
