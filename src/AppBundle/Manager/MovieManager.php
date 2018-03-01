@@ -3,6 +3,7 @@
 namespace AppBundle\Manager;
 
 use AppBundle\Entity\Movie;
+use AppBundle\Repository\MovieRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -48,6 +49,14 @@ class MovieManager {
     {
         return $this->em->getRepository(Movie:: class)
             ->find($id);
+    }
+
+    public function search($name){
+        /** @var MovieRepository $movieRepository */
+        $movieRepository = $this->em->getRepository(Movie::class);
+
+        return $movieRepository
+            ->searchMovie($name);
     }
 
 }

@@ -4,6 +4,9 @@
 p, a, h1{
     color: #fff;
 }
+a:hover{
+    color: #fff;
+}
 .nav-link{
     color: #fff !important;
 }
@@ -102,3 +105,32 @@ body{
 
 }
 
+.btn-later{
+    border-radius: 5px;
+    border: 1px solid;
+    margin-top: 7px;
+    font-size: 15px;
+    position: absolute;
+    right: 5%;
+}
+
+.btn-unfollow{
+    border-radius: 5px;
+    background-color: #1b1e21;
+    margin-top: 7px;
+    font-size: 15px;
+    position: absolute;
+    right: 5%;
+}
+
+.btn-category{
+    border-radius: 5px;
+    background-color: #1b1e21;
+    margin-top: 15px;
+    font-size: 10px;
+}
+
+.movie-date{
+    margin-left: -12px;
+    margin-top: -10px;
+}

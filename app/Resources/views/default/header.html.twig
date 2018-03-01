@@ -17,16 +17,19 @@
         </a>
         <ul class="nav justify-content-end">
             {% if app.user %}
-                <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Movie</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Profil</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Film</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('profil') }}">Profil</a></li>
+                <li class="nav-item">
+
+                </li>
                 {% if app.user.isadmin %}
                     <li class="nav-item"><a class="nav-link" href="{{ path('dashboard') }}">Dashboard</a></li>
                 {% endif %}
-                <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_out') }}">logout</a></li>
+                <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_out') }}">Déconnexion</a></li>
             {% else %}
-                <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_in') }}">Login</a></li>
-                <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_up') }}">Register</a></li>
+                <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_in') }}">Connexion</a></li>
+                <li class="nav-item"><a class="nav-link nav-btn" href="{{ path('sign_up') }}">S'enregistrer</a></li>
             {% endif %}
         </ul>
     </nav>

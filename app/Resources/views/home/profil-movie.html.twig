@@ -4,34 +4,43 @@
 
 {% block content %}
     {% set btnWatch = false %}
+
+    {% for movietowatch in app.user.towatch %}
+
+        {% if movie.name == movietowatch.name %}
+            {% set btnWatch = true %}
+        {% endif %}
+
+    {% endfor %}
+
 <div class="img-full" style="background-image:url('{{ asset('uploads/images/' ~ movie.image) }}')"></div>
 
 <div class="container">
-<h1>{{ movie.name }}</h1>
+    <div>
+    <div class="row">
+        <h1>{{ movie.name }}</h1>
+        <div class="col-5">
+        <a href="{{ path('profil_category', {'id': movie.categoryMovie.id}) }}" class="btn btn-category">{{ movie.categoryMovie.name }}</a>
+        </div>
+            {% if btnWatch == false %}
+                    <a href="{{ path('toWatch', {'idUser': app.user.id, 'idMovie': movie.id}) }}" class="btn btn-later">Regarder plus tard</a>
+                {% else %}
+                    <a href="{{ path('toUnwatch', {'idUser': app.user.id, 'idMovie': movie.id}) }}" class="btn btn-unfollow">Ne plus suivre</a>
+                {% endif %}
+        </div>
+        <h5 class="movie-date">{{ movie.releaseDate|date('Y') }}</h5>
+        <br/>
+        <h3>Synopsis</h3>
+        <p>{{ movie.synopsis }}</p>
 
-{% for movietowatch in app.user.towatch %}
+    </div>
+        {% if movie.video %}
 
-    {% if movie.name == movietowatch.name %}
-        {% set btnWatch = true %}
-    {% endif %}
+        <video controls="controls" class="col-offset-2 col-md-8 col-xs-12 movie-video">
+            <source src="{{ asset('uploads/videos/' ~ movie.video) }}" type="video/mp4" />
+        </video>
 
-{% endfor %}
-
-{% if btnWatch == false %}
-    <a href="{{ path('toWatch', {'idUser': app.user.id, 'idMovie': movie.id}) }}" class="btn btn-primary">Watch later</a>
-{% else %}
-    <a href="{{ path('toUnwatch', {'idUser': app.user.id, 'idMovie': movie.id}) }}" class="btn btn-success">Saw</a>
-{% endif %}
-
-<p>Synopsis : {{ movie.synopsis }}</p>
-<p>Sortie : {{ movie.releaseDate|date('Y-m-d') }}</p>
-<p>Catégorie : {{ movie.categoryMovie.name }}</p>
-
-    {% if movie.video %}
-    <video controls="controls" class="col-12">
-        <source src="{{ asset('uploads/videos/' ~ movie.video) }}" type="video/mp4" />
-    </video>
-    {% endif %}
+        {% endif %}
 </div>
 
 {% endblock %}

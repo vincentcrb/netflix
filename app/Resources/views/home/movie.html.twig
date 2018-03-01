@@ -1,0 +1,10 @@
+{% extends "default/layout.html.twig" %}
+
+{% block content %}
+    
+    {{ render(controller(
+        'AppBundle\\Controller\\DefaultController::listMovie'
+    )) }}
+
+{% endblock %}
+

@@ -2,8 +2,12 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Movie;
+use AppBundle\Form\SearchType;
+use AppBundle\Form\UserType;
 use AppBundle\Manager\CategoryMovieManager;
 use AppBundle\Manager\MovieManager;
+use AppBundle\Manager\UserManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +27,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/home/profil", name="home")
+     * @Route("/home", name="home")
      */
     public function indexAction2(Request $request)
     {
@@ -36,6 +40,11 @@ class DefaultController extends Controller
     /**
      * @Route("/home/movies", name="list_movies")
      */
+    public function movieAction()
+    {
+        return $this->render('home/movie.html.twig');
+    }
+
     public function listMovie(MovieManager $moviesManager)
     {
         $movies = $moviesManager->getMovies();
@@ -73,8 +82,69 @@ class DefaultController extends Controller
         if($categoryMovies == null) {
             throw new NotFoundHttpException('404, Categorie non trouvée');
         }
-        return $this->render('home/profil-movie.html.twig', [
+        return $this->render('home/profil-category.html.twig', [
             'categoryMovies' => $categoryMovies
         ]);
     }
+
+    /**
+     * @Route("/home/profil", name="profil")
+     */
+    public function profilUser()
+    {
+        $user = $this->getUser();
+
+        if ($user == null) {
+            throw new NotFoundHttpException('404, Utilisateur non trouvé');
+        }
+        return $this->render('home/profil-user.html.twig', [
+            'user' => $user
+        ]);
+    }
+
+    /**
+     * @Route("/home/profil/edit", name="edit_profil")
+     */
+    public function editProfil(Request $request, UserManager $userManager)
+    {
+        $user = $this->getUser();
+
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $user = $form->getData();
+
+            $userManager->createUser($user);
+
+            return $this->redirectToRoute('profil');
+        }
+
+        return $this->render('default/sign-up.html.twig', [ 'form' => $form->createView()
+        ]);
+    }
+
+    public function searchMovie(Request $request, MovieManager $movieManager)
+    {
+        $movie = new Movie();
+
+        $form = $this->createForm(SearchType::class, $movie);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $movie = $form->getData();
+
+            $search = $movieManager->search($movie->getName());
+
+            return $this->render('home/list-movie.html.twig', [ 'movies' => $search]);
+        }
+
+        return $this->render('default/sign-up.html.twig', [ 'form' => $form->createView()
+        ]);
+    }
+
 }

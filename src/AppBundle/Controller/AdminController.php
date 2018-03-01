@@ -26,17 +26,19 @@ class AdminController extends Controller
     {
         $user = $usersManager->getUser($id);
 
-        if($user == null) {
+        if ($user == null) {
             throw new NotFoundHttpException('404, Utilisateur non trouvé');
         }
         return $this->render('admin/profil-user.html.twig', [
             'user' => $user
         ]);
     }
+
     /**
      * @Route("/admin/delete/{id}", name="delete_user")
      */
-    public function deleteUser(UserManager $usersManager, $id){
+    public function deleteUser(UserManager $usersManager, $id)
+    {
         $usersManager->deleteUser($id);
         return $this->redirectToRoute("list_users");
     }
@@ -57,26 +59,27 @@ class AdminController extends Controller
     {
         $movie = $moviesManager->getMovie($id);
 
-        if($movie == null) {
+        if ($movie == null) {
             throw new NotFoundHttpException('404, Film non trouvé');
         }
         return $this->render('admin/profil-movie.html.twig', [
             'movie' => $movie
         ]);
     }
+
     /**
      * @Route("/admin/delete-movie/{id}", name="delete_movie")
      */
     public function deleteMovie(MovieManager $moviesManager, $id)
     {
-        $uploadPath = $this->get('kernel')->getRootDir().'/../web/uploads';
+        $uploadPath = $this->get('kernel')->getRootDir() . '/../web/uploads';
         $movie = $moviesManager->getMovie($id);
 
-        if($movie->getImage()){
-            unlink($uploadPath.'/images/'.$movie->getImage());
+        if ($movie->getImage()) {
+            unlink($uploadPath . '/images/' . $movie->getImage());
         }
 
-        if($movie->getVideo()) {
+        if ($movie->getVideo()) {
             unlink($uploadPath . '/videos/' . $movie->getVideo());
         }
 
