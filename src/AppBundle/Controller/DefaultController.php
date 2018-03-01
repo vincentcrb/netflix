@@ -126,7 +126,10 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function searchMovie(Request $request, MovieManager $movieManager)
+    /**
+     * @Route("/home/larecherchequimarchepas", name="search")
+     */
+    public function searchMovie(Request $request)
     {
         $movie = new Movie();
 
@@ -137,14 +140,20 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid())
         {
             $movie = $form->getData();
-
-            $search = $movieManager->search($movie->getName());
-
-            return $this->render('home/list-movie.html.twig', [ 'movies' => $search]);
+            return $this->redirectToRoute('search', array('search' => $movie->getName()));
         }
 
-        return $this->render('default/sign-up.html.twig', [ 'form' => $form->createView()
+        return $this->render('home/search.html.twig', [ 'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/home/search/{search}", name="searchList")
+     */
+    public function searchList($search, MovieManager $movieManager)
+    {
+        $searchList = $movieManager->search($search);
+        return $this->render('home/list-movie.html.twig', [ 'movies' => $searchList]);
     }
 
 }
