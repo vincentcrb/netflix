@@ -52,9 +52,11 @@ class MovieManager {
     }
 
     public function search($name){
+        if ($name == '') {
+            return [];
+        }
         /** @var MovieRepository $movieRepository */
         $movieRepository = $this->em->getRepository(Movie::class);
-
         return $movieRepository
             ->searchMovie($name);
     }

@@ -67,6 +67,7 @@ body{
 
 .img-container{
     padding: 0;
+    margin: 10px 0px;
 }
 .img{
     height: 160px;
@@ -133,4 +134,43 @@ body{
 .movie-date{
     margin-left: -12px;
     margin-top: -10px;
+}
+
+.search-input{
+    width: 200px;
+    background-color: rgba(155,155,155,0.5);
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+
+.search-input::placeholder{
+    color: #1b1e21;
+}
+
+.search-input:focus{
+    background-color: #1b1e21;
+    outline: none;
+}
+
+.search-form .form-group button{
+    background: none;
+    border: none;
+    display: none;
+}
+
+.btn-edit{
+    background: #007bff;
+    font-size: 10px;
+}
+
+.btn-add{
+    background: #007bff;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.table-admin{
+    background-color: #fff;
+    color: #222;
 }

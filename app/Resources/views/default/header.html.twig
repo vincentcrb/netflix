@@ -15,14 +15,16 @@
         <a class="navbar-brand" href={{ path('home') }} >
             Netflix
         </a>
+        {% if app.user %}
+        <div class="search-form">
+            {{ render(controller('AppBundle:Default:searchBar')) }}
+        </div>
+        {% endif %}
         <ul class="nav justify-content-end">
             {% if app.user %}
                 <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ path('list_movies') }}">Film</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ path('profil') }}">Profil</a></li>
-                <li class="nav-item">
-
-                </li>
                 {% if app.user.isadmin %}
                     <li class="nav-item"><a class="nav-link" href="{{ path('dashboard') }}">Dashboard</a></li>
                 {% endif %}

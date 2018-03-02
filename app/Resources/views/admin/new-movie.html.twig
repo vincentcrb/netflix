@@ -2,37 +2,47 @@
 
 {% block content %}
 
-<div class="container">
-<h1>Ajouter un film</h1>
-{{ form_start(form) }}
-    {{ form_errors(form) }}
-    <div>
-        {{ form_label(form.name) }}
-        {{ form_errors(form.name) }}
-        {{ form_widget(form.name) }}
+    <div class="container">
+
+        <h1>Ajouter un film</h1>
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label(form.name) }}
+            <br/>
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name,{ 'attr': {'size': '50'} }) }}
+        </div>
+        <div>
+            {{ form_label(form.synopsis) }}
+            <br/>
+            {{ form_errors(form.synopsis) }}
+            {{ form_widget(form.synopsis,{ 'attr': {'cols': '70', 'rows':'5'} }) }}
+        </div>
+        <div>
+            {{ form_label(form.releaseDate) }}
+            <br/>
+            {{ form_errors(form.releaseDate) }}
+            {{ form_widget(form.releaseDate) }}
+        </div>
+        <div>
+            {{ form_label(form.categoryMovie) }}
+            <br/>
+            {{ form_errors(form.categoryMovie) }}
+            {{ form_widget(form.categoryMovie) }}
+        </div>
+        <br/>
+        <div>
+            {{ form_row(form.image) }}
+        </div>
+        <br/>
+        <div>
+            {{ form_row(form.video) }}
+        </div>
+        <br/>
+        {{ form_end(form) }}
+
     </div>
-    <div>
-        {{ form_label(form.synopsis) }}
-        {{ form_errors(form.synopsis) }}
-        {{ form_widget(form.synopsis) }}
-    </div>
-    <div>
-        {{ form_label(form.releaseDate) }}
-        {{ form_errors(form.releaseDate) }}
-        {{ form_widget(form.releaseDate) }}
-    </div>
-    <div>
-        {{ form_label(form.categoryMovie) }}
-        {{ form_errors(form.categoryMovie) }}
-        {{ form_widget(form.categoryMovie) }}
-    </div>
-    <div>
-        {{ form_row(form.image) }}
-    </div>
-    <div>
-        {{ form_row(form.video) }}
-    </div>
-{{ form_end(form) }}
-</div>
 
 {% endblock %}

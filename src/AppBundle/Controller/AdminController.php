@@ -40,7 +40,7 @@ class AdminController extends Controller
     public function deleteUser(UserManager $usersManager, $id)
     {
         $usersManager->deleteUser($id);
-        return $this->redirectToRoute("list_users");
+        return $this->redirectToRoute("dashboard");
     }
 
     /**

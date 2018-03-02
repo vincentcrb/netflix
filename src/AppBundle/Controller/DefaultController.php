@@ -2,14 +2,14 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Movie;
-use AppBundle\Form\SearchType;
 use AppBundle\Form\UserType;
 use AppBundle\Manager\CategoryMovieManager;
 use AppBundle\Manager\MovieManager;
 use AppBundle\Manager\UserManager;
+use Doctrine\DBAL\Types\TextType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -127,33 +127,33 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/home/larecherchequimarchepas", name="search")
+     * @Route("/home/search", name="search")
+     * @param Request $request
+     * @param MovieManager $movieManager
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function searchMovie(Request $request)
+    public function searchMovie(Request $request, MovieManager $movieManager)
     {
-        $movie = new Movie();
-
-        $form = $this->createForm(SearchType::class, $movie);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $movie = $form->getData();
-            return $this->redirectToRoute('search', array('search' => $movie->getName()));
+        $search = $request->request->get('form')['name'];
+        if(!$search){
+            return $this->redirectToRoute('home');
         }
-
-        return $this->render('home/search.html.twig', [ 'form' => $form->createView()
+        $movies = $movieManager->search($search);
+        return $this->render('home/search.html.twig', [
+            'movies' => $movies,
+            'search' => $search
         ]);
     }
-
-    /**
-     * @Route("/home/search/{search}", name="searchList")
-     */
-    public function searchList($search, MovieManager $movieManager)
+    public function searchBarAction()
     {
-        $searchList = $movieManager->search($search);
-        return $this->render('home/list-movie.html.twig', [ 'movies' => $searchList]);
+        $form = $this->createFormBuilder()
+            ->add('name', \Symfony\Component\Form\Extension\Core\Type\TextType::class)
+            ->add('search', SubmitType::class)
+            ->setAction($this->generateUrl('search'))
+            ->getForm();
+        return $this->render('home/search-bar.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
 }

@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,7 +20,7 @@ class MovieType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('synopsis', TextType::class)
+            ->add('synopsis', TextareaType::class)
             ->add('releaseDate', DateType::class)
             ->add('categoryMovie', EntityType::class, [
                 'class' => CategoryMovie:: class,

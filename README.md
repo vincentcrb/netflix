@@ -1,9 +1,59 @@
-# Netflix - Bazerque florian / Carabin Vincent
+# Netflix - Bazerque Florian / Carabin Vincent
 
-## Arborescence
+## Installation
 
-### Page connexion : 
+Une fois l'installation classique de symfony ainsi que la base de données créée, execute les commandes suivantes pour importer les fichiers csv.
 
-La page de connexion est la page par défaut, on ne peut pas acceder au site sans se connecter.
+```
+php bin/console import:category:csv
+```
 
-### Page Home : 
+```
+php bin/console import:movie:csv
+```
+
+```
+php bin/console import:user:csv
+```
+
+```
+php bin/console import:usermovie:csv
+```
+
+### Compte admin :
+```
+username : test
+password : test 
+```
+
+### Compte utilisateur : 
+
+```
+username : goeffrey
+password : test 
+```
+
+```
+username : vincent
+password : test 
+```
+
+```
+username : florian
+password : test 
+```
+
+## Fonctionnalités du site
+
+- Inscription / Connexion utilisateur (ROLE_USER)
+- Faire une recherche d'un film 
+- Lister les films par catégories
+- Afficher le détail du film 
+- Regarder un film
+- Modifier les paramètres / préférences utilisateur
+- Ajouter / supprimer un film de la liste "à regarder plus tard"
+- CRUD catégorie de film
+- CRUD film
+- Gestion des utilisateurs (ajout / suppression)
+- Import massif de film
+- ROLE_ADMIN

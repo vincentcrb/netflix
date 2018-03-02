@@ -1,0 +1,14 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{{ form_start(form) }}
+{{ form_errors(form) }}
+
+<div class="search-form">
+
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name, { 'attr': {'class': "search-input",
+        'placeholder': 'Rechercher'}}) }}
+
+</div>
+
+{{ form_end(form) }}

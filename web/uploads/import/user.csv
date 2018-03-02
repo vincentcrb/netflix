@@ -1,0 +1,5 @@
+"id";"username";"password";"email";"firstName";"lastName";"birthDate";"isAdmin"
+"1";"admin";"$2y$13$kvug6l3ML0Qw2XXJpaJcye08ES9Za0cksX8ZLvRiGymEGc8FWXXvW";"admin@gmail.com";"admin";"admin";"2018-01-01";"1"
+"2";"Goeffrey";"$2y$13$m78wKPdDKcBqWktU4PxSoezde/ldHO4o9ke0PsRaCYZ6ArL8thxPi";"geoffrey@gmail.com";"geoffrey";"geoffrey";"2013-01-01";"0"
+"3";"vincent";"$2y$13$96B9Gi8P1vG.37KvVv7U4OnfPkUjzuRxM4ZtQmcwsxfaWHJ841aXe";"vincent@gmail.com";"vincent";"vincent";"2013-01-01";"0"
+"4";"florian";"$2y$13$6pBQYaUBfYX2tQ8V719/PuRrgq.k5Ke1SPqwv6l31lFVno1pTEGOC";"florian@gmail.com";"florian";"florian";"2013-01-01";"0"

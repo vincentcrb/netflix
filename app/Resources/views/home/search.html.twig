@@ -1,9 +1,20 @@
-{{ form_start(form) }}
-{{ form_errors(form) }}
-<div>
-    {{ form_label(form.name) }}
-    {{ form_errors(form.name) }}
-    {{ form_widget(form.name) }}
+{% extends "default/layout.html.twig" %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Résultat de "{{ search }}" </h1>
+    <div class="row">
+        {% for movie in movies %}
+            <div class="col-3 img-container">
+                <a href="{{ path('profil_movie', {'id': movie.id}) }}">
+                    <div class="col-12 img" style="background-image:url('{{ asset('uploads/images/' ~ movie.image) }}')">
+                        <div class="movie-name"><p>{{ movie.name }}</p></div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
-{{ form_end(form) }}
+{% endblock %}

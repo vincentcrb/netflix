@@ -1,7 +1,11 @@
 {% extends "default/layout.html.twig" %}
 
 {% block content %}
-    
+
+    {{ render(controller(
+        'AppBundle\\Controller\\DefaultController::listCategoryMovie'
+    )) }}
+
     {{ render(controller(
         'AppBundle\\Controller\\DefaultController::listMovie'
     )) }}
