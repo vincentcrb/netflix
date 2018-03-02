@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a05b71a4-b2f7-4103-827e-47caef81a286" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/home/search-bar.html.twig" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/dashboard.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/dashboard.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/list-movies.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/list-movies.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/list-users.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/list-users.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/new-movie.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/new-movie.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/profil-movie.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/profil-movie.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/home.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/home/home.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/movie.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/home/movie.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/profil-category.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/home/profil-category.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/profil-user.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/home/profil-user.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/search.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Command/CreateCategoryMovieCommand.php" afterPath="$PROJECT_DIR$/src/AppBundle/Command/CreateCategoryMovieCommand.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/MovieType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/MovieType.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/SearchType.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Manager/MovieManager.php" afterPath="$PROJECT_DIR$/src/AppBundle/Manager/MovieManager.php" />
-      <change beforePath="$PROJECT_DIR$/web/assets/css/main.css" afterPath="$PROJECT_DIR$/web/assets/css/main.css" />
-      <change beforePath="$PROJECT_DIR$/web/uploads/images/2c5f2c2df828cbdb0680836d46a88256.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/uploads/images/54235dbd7f8ea79c6c2fd06d62ad8a1e.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/uploads/videos/123638406d70154335436a1c7f7712c7.mp4" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/uploads/videos/c641dc81edfe5c476964598f627a53d3.mp4" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +16,21 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="266">
+                <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -386,17 +377,18 @@
       <workItem from="1519805308908" duration="29000" />
       <workItem from="1519805894304" duration="2920000" />
       <workItem from="1519891686470" duration="10252000" />
-      <workItem from="1519977621172" duration="9251000" />
+      <workItem from="1519977621172" duration="9413000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96980000" />
+    <option name="totallyTimeSpent" value="97142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23984376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23984376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32933334" sideWeight="0.50859374" order="7" side_tool="true" content_ui="tabs" />
@@ -741,17 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="500">
-            <caret line="43" column="3" lean-forward="false" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/new-movie.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -797,6 +778,17 @@
         <state relative-caret-position="675">
           <caret line="45" column="0" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="45" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="266">
+            <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

@@ -22,8 +22,8 @@ php bin/console import:usermovie:csv
 
 ### Compte admin :
 ```
-username : test
-password : test 
+username : admin
+password : admin 
 ```
 
 ### Compte utilisateur : 
